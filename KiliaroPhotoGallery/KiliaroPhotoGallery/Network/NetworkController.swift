@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 
+typealias headers = [String: Any]
+
 protocol NetworkControllerProtocol {
-    typealias headers = [String: Any]
 
     func get<T>(type: T.Type,
                 url: URL,
@@ -31,7 +32,13 @@ final class NetworkController: NetworkControllerProtocol {
         return URLSession
             .shared
             .dataTaskPublisher(for: urlRequest)
-            .map(\.data)
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                return element.data
+            }
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }

@@ -18,7 +18,7 @@ struct Media: Codable {
     let guessedTakenAt: String?
     let md5sum: String?
     let contentType: String?
-    let video: String?
+    let video: Video?
     let thumbnailUrl: String?
     let downloadUrl: String?
     let resX: Int?
@@ -45,5 +45,9 @@ struct Media: Codable {
 }
 
 enum MediaType: String, Codable {
-    case image
+    case image, video
+}
+
+struct Video: Codable {
+    var id: String?
 }

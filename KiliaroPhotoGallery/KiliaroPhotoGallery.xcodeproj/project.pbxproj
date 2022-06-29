@@ -20,6 +20,14 @@
 		03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B9F286C5D6F005A60B0 /* Model.swift */; };
 		03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */; };
 		03BD2BA7286C6425005A60B0 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA6286C6425005A60B0 /* NetworkController.swift */; };
+		03BD2BAA286C6EAF005A60B0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA9286C6EAF005A60B0 /* HttpMethod.swift */; };
+		03BD2BAC286C6F10005A60B0 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03BD2BAB286C6F10005A60B0 /* Configuration.plist */; };
+		03BD2BAF286C6FE3005A60B0 /* ConfigurationUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BAE286C6FE3005A60B0 /* ConfigurationUrl.swift */; };
+		03BD2BB1286C7197005A60B0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BB0286C7197005A60B0 /* Endpoint.swift */; };
+		03BD2BB3286C7AB8005A60B0 /* ServerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BB2286C7AB8005A60B0 /* ServerProtocol.swift */; };
+		03BD2BB9286C7E0C005A60B0 /* GalleyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BB7286C7E0C005A60B0 /* GalleyCollectionViewCell.swift */; };
+		03BD2BBA286C7E0C005A60B0 /* GalleyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BD2BB8286C7E0C005A60B0 /* GalleyCollectionViewCell.xib */; };
+		03BD2BBC286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,14 @@
 		03BD2B9F286C5D6F005A60B0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gallery+Network.swift"; sourceTree = "<group>"; };
 		03BD2BA6286C6425005A60B0 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		03BD2BA9286C6EAF005A60B0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		03BD2BAB286C6F10005A60B0 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		03BD2BAE286C6FE3005A60B0 /* ConfigurationUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationUrl.swift; sourceTree = "<group>"; };
+		03BD2BB0286C7197005A60B0 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		03BD2BB2286C7AB8005A60B0 /* ServerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerProtocol.swift; sourceTree = "<group>"; };
+		03BD2BB7286C7E0C005A60B0 /* GalleyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyCollectionViewCell.swift; sourceTree = "<group>"; };
+		03BD2BB8286C7E0C005A60B0 /* GalleyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleyCollectionViewCell.xib; sourceTree = "<group>"; };
+		03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyCollectionCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +190,7 @@
 		03BD2B9B286C5D1F005A60B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03BD2BB6286C7DF0005A60B0 /* Cell */,
 				03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */,
 			);
 			path = View;
@@ -206,9 +223,32 @@
 		03BD2BA5286C63DB005A60B0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				03BD2BAD286C6FC9005A60B0 /* Configuration */,
+				03BD2BB0286C7197005A60B0 /* Endpoint.swift */,
+				03BD2BA9286C6EAF005A60B0 /* HttpMethod.swift */,
 				03BD2BA6286C6425005A60B0 /* NetworkController.swift */,
+				03BD2BB2286C7AB8005A60B0 /* ServerProtocol.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		03BD2BAD286C6FC9005A60B0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2BAB286C6F10005A60B0 /* Configuration.plist */,
+				03BD2BAE286C6FE3005A60B0 /* ConfigurationUrl.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		03BD2BB6286C7DF0005A60B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2BB7286C7E0C005A60B0 /* GalleyCollectionViewCell.swift */,
+				03BD2BB8286C7E0C005A60B0 /* GalleyCollectionViewCell.xib */,
+				03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,8 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				037E141D286C592E0049B0C0 /* LaunchScreen.storyboard in Resources */,
+				03BD2BAC286C6F10005A60B0 /* Configuration.plist in Resources */,
 				037E141A286C592E0049B0C0 /* Assets.xcassets in Resources */,
 				037E1418286C592B0049B0C0 /* Main.storyboard in Resources */,
+				03BD2BBA286C7E0C005A60B0 /* GalleyCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,10 +386,16 @@
 			files = (
 				03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */,
 				037E1411286C592B0049B0C0 /* AppDelegate.swift in Sources */,
+				03BD2BB3286C7AB8005A60B0 /* ServerProtocol.swift in Sources */,
 				03BD2B9E286C5D3F005A60B0 /* GalleryViewModel.swift in Sources */,
+				03BD2BAF286C6FE3005A60B0 /* ConfigurationUrl.swift in Sources */,
+				03BD2BB1286C7197005A60B0 /* Endpoint.swift in Sources */,
+				03BD2BB9286C7E0C005A60B0 /* GalleyCollectionViewCell.swift in Sources */,
 				03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */,
+				03BD2BAA286C6EAF005A60B0 /* HttpMethod.swift in Sources */,
 				037E1413286C592B0049B0C0 /* SceneDelegate.swift in Sources */,
 				03BD2BA7286C6425005A60B0 /* NetworkController.swift in Sources */,
+				03BD2BBC286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift in Sources */,
 				03BD2B9A286C5CD8005A60B0 /* GalleyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
