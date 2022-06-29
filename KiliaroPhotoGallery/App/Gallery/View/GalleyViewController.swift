@@ -14,7 +14,7 @@ class GalleyViewController: UIViewController {
 
 
     // MARK: - Properties
-    private var collectionView = UICollectionView()
+    @IBOutlet weak var collectionView: UICollectionView!
 
     private var cancelable = Set<AnyCancellable>()
     private let sharedKey = "djlCbGusTJamg_ca4axEVw"
@@ -70,10 +70,6 @@ class GalleyViewController: UIViewController {
 
 extension GalleyViewController: UICollectionViewDataSource {
     func setupCollectionView() {
-
-        view.addSubview(collectionView)
-        collectionView.frame = view.bounds
-
         collectionView.delegate = self
         collectionView.dataSource = self
 
