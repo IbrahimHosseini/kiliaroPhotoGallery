@@ -15,6 +15,11 @@
 		037E1428286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */; };
 		037E1432286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */; };
 		037E1434286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */; };
+		03BD2B9A286C5CD8005A60B0 /* GalleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */; };
+		03BD2B9E286C5D3F005A60B0 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B9D286C5D3F005A60B0 /* GalleryViewModel.swift */; };
+		03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B9F286C5D6F005A60B0 /* Model.swift */; };
+		03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */; };
+		03BD2BA7286C6425005A60B0 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA6286C6425005A60B0 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		037E142D286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiliaroPhotoGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITests.swift; sourceTree = "<group>"; };
 		037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyViewController.swift; sourceTree = "<group>"; };
+		03BD2B9D286C5D3F005A60B0 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		03BD2B9F286C5D6F005A60B0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gallery+Network.swift"; sourceTree = "<group>"; };
+		03BD2BA6286C6425005A60B0 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				037E1442286C5A290049B0C0 /* App */,
-				037E1441286C59870049B0C0 /* Starter */,
+				03BD2BA5286C63DB005A60B0 /* Network */,
 				037E1440286C59770049B0C0 /* Resource */,
+				037E1441286C59870049B0C0 /* Starter */,
 			);
 			path = KiliaroPhotoGallery;
 			sourceTree = "<group>";
@@ -143,9 +154,61 @@
 		037E1442286C5A290049B0C0 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				03BD2B98286C5CA6005A60B0 /* Gallery */,
 				037E1416286C592B0049B0C0 /* Main.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		03BD2B98286C5CA6005A60B0 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2BA1286C5D73005A60B0 /* Model */,
+				03BD2BA4286C6257005A60B0 /* Network */,
+				03BD2B9B286C5D1F005A60B0 /* View */,
+				03BD2B9C286C5D26005A60B0 /* ViewModel */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		03BD2B9B286C5D1F005A60B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03BD2B9C286C5D26005A60B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2B9D286C5D3F005A60B0 /* GalleryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		03BD2BA1286C5D73005A60B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2B9F286C5D6F005A60B0 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03BD2BA4286C6257005A60B0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		03BD2BA5286C63DB005A60B0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				03BD2BA6286C6425005A60B0 /* NetworkController.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */,
 				037E1411286C592B0049B0C0 /* AppDelegate.swift in Sources */,
+				03BD2B9E286C5D3F005A60B0 /* GalleryViewModel.swift in Sources */,
+				03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */,
 				037E1413286C592B0049B0C0 /* SceneDelegate.swift in Sources */,
+				03BD2BA7286C6425005A60B0 /* NetworkController.swift in Sources */,
+				03BD2B9A286C5CD8005A60B0 /* GalleyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
