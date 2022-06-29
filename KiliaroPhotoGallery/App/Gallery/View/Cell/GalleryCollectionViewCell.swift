@@ -2,42 +2,46 @@
 //  GalleryCollectionViewCell.swift
 //  KiliaroPhotoGallery
 //
-//  Created by Ibrahim Hosseini on 6/29/22.
+//  Created by Ibrahim Hosseini on 6/30/22.
 //
 
 import UIKit
+import Combine
 
 class GalleryCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var imageView: ImageView!
+
     static let identifier = "MyCollectionViewCell"
 
-    private var imageView: UIImageView = {
-        let imageView = UIImageView()
+    private var cancellable = Set<AnyCancellable>()
+
+    private var viewModel: GalleryCollectionViewModel? {
+        didSet {
+            setupBinding()
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        contentView.addSubview(imageView)
-
-        let image: [UIImage] = [UIImage(named: "1"),
-                                UIImage(named: "2"),
-                                UIImage(named: "3"),
-                                UIImage(named: "4"),
-                                UIImage(named: "5")].compactMap { $0 }
-
-        imageView.image = image.randomElement()
-        contentView.clipsToBounds = true
+        let radius = UIScreen.main.bounds.width * 0.07
+        imageView.setCornerRadius(radius)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError()
+    public func fill(_ data: GalleryCollectionViewModel) {
+        self.viewModel = data
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = contentView.bounds
+    fileprivate func setupBinding() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        imageView.setImage(urlString: viewModel.thumbnailUrl)
     }
+
 }
