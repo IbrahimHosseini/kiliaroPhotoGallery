@@ -10,11 +10,12 @@ import Combine
 
 class GalleyViewController: UIViewController {
 
-
     // MARK: - Outlets
 
 
     // MARK: - Properties
+    private var collectionView = UICollectionView()
+
     private var cancelable = Set<AnyCancellable>()
     private let sharedKey = "djlCbGusTJamg_ca4axEVw"
 
@@ -40,6 +41,7 @@ class GalleyViewController: UIViewController {
     // MARK: - Functions
 
     fileprivate func setupView() {
+        setupCollectionView()
 
     }
 
@@ -56,10 +58,47 @@ class GalleyViewController: UIViewController {
     }
 
     func loadData() {
-        viewMode.getSharedMedia("")
+        viewMode.getSharedMedia(sharedKey)
     }
 
     // MARK: - Actions
 
 
+}
+
+// MARK: - collection view data source
+
+extension GalleyViewController: UICollectionViewDataSource {
+    func setupCollectionView() {
+
+        view.addSubview(collectionView)
+        collectionView.frame = view.bounds
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        collectionView.register(GalleryCollectionViewCell.self,
+                                forCellWithReuseIdentifier: GalleryCollectionViewCell.identifier)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.identifier, for: indexPath)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    }
+}
+
+// MARK: - collection view delegate
+
+extension GalleyViewController: UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewMode.gallery?.count ?? 0
+    }
 }
