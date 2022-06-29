@@ -1,6 +1,0 @@
-framework module Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests {
-  umbrella header "Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
