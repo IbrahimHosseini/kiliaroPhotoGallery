@@ -27,6 +27,9 @@
 		03BD2BB3286C7AB8005A60B0 /* ServerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BB2286C7AB8005A60B0 /* ServerProtocol.swift */; };
 		03BD2BB9286C7E0C005A60B0 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BB7286C7E0C005A60B0 /* GalleryCollectionViewCell.swift */; };
 		03BD2BBC286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */; };
+		6201C8BF45DE9723002F9D4B /* Pods_KiliaroPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156A27B2A6F8D96A4F0F42AB /* Pods_KiliaroPhotoGallery.framework */; };
+		6A1ADC04E88BD7A5B30D6E59 /* Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064CC0A405CB2F6848F6E446 /* Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework */; };
+		D8A089AC26EBAC98EC94E1EE /* Pods_KiliaroPhotoGalleryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EC1C3A37C619B9D5BC94B4 /* Pods_KiliaroPhotoGalleryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,15 @@
 		03BD2BB2286C7AB8005A60B0 /* ServerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerProtocol.swift; sourceTree = "<group>"; };
 		03BD2BB7286C7E0C005A60B0 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		064CC0A405CB2F6848F6E446 /* Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08967458AD0505C945E255C9 /* Pods-KiliaroPhotoGalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGalleryTests.debug.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGalleryTests/Pods-KiliaroPhotoGalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		156A27B2A6F8D96A4F0F42AB /* Pods_KiliaroPhotoGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KiliaroPhotoGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		651105806D188B36A2AAA92E /* Pods-KiliaroPhotoGalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGalleryTests.release.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGalleryTests/Pods-KiliaroPhotoGalleryTests.release.xcconfig"; sourceTree = "<group>"; };
+		6EF907FE93DF752943C49EC0 /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.debug.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		85EC1C3A37C619B9D5BC94B4 /* Pods_KiliaroPhotoGalleryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KiliaroPhotoGalleryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B585212971BB1874AA8A2221 /* Pods-KiliaroPhotoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGallery.debug.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGallery/Pods-KiliaroPhotoGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		E2E1E8EDE2E137484C0C8C0F /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.release.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ECCE3C16B858A49F4B8E4A66 /* Pods-KiliaroPhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KiliaroPhotoGallery.release.xcconfig"; path = "Target Support Files/Pods-KiliaroPhotoGallery/Pods-KiliaroPhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6201C8BF45DE9723002F9D4B /* Pods_KiliaroPhotoGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A089AC26EBAC98EC94E1EE /* Pods_KiliaroPhotoGalleryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A1ADC04E88BD7A5B30D6E59 /* Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +120,8 @@
 				037E1426286C592E0049B0C0 /* KiliaroPhotoGalleryTests */,
 				037E1430286C592E0049B0C0 /* KiliaroPhotoGalleryUITests */,
 				037E140E286C592B0049B0C0 /* Products */,
+				79ED03170C8A3C9C7CCFBEE4 /* Pods */,
+				19E54BDBDFD6CD50B9D94621 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +265,30 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		19E54BDBDFD6CD50B9D94621 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				156A27B2A6F8D96A4F0F42AB /* Pods_KiliaroPhotoGallery.framework */,
+				064CC0A405CB2F6848F6E446 /* Pods_KiliaroPhotoGallery_KiliaroPhotoGalleryUITests.framework */,
+				85EC1C3A37C619B9D5BC94B4 /* Pods_KiliaroPhotoGalleryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79ED03170C8A3C9C7CCFBEE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B585212971BB1874AA8A2221 /* Pods-KiliaroPhotoGallery.debug.xcconfig */,
+				ECCE3C16B858A49F4B8E4A66 /* Pods-KiliaroPhotoGallery.release.xcconfig */,
+				6EF907FE93DF752943C49EC0 /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.debug.xcconfig */,
+				E2E1E8EDE2E137484C0C8C0F /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.release.xcconfig */,
+				08967458AD0505C945E255C9 /* Pods-KiliaroPhotoGalleryTests.debug.xcconfig */,
+				651105806D188B36A2AAA92E /* Pods-KiliaroPhotoGalleryTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,9 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 037E1437286C592E0049B0C0 /* Build configuration list for PBXNativeTarget "KiliaroPhotoGallery" */;
 			buildPhases = (
+				637C0F7CE2F20CEE5734B7F1 /* [CP] Check Pods Manifest.lock */,
 				037E1409286C592B0049B0C0 /* Sources */,
 				037E140A286C592B0049B0C0 /* Frameworks */,
 				037E140B286C592B0049B0C0 /* Resources */,
+				74E0ED62C23AFC6DBC712E2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 037E143A286C592E0049B0C0 /* Build configuration list for PBXNativeTarget "KiliaroPhotoGalleryTests" */;
 			buildPhases = (
+				857B6FEC760D451483C81E54 /* [CP] Check Pods Manifest.lock */,
 				037E141F286C592E0049B0C0 /* Sources */,
 				037E1420286C592E0049B0C0 /* Frameworks */,
 				037E1421286C592E0049B0C0 /* Resources */,
@@ -290,9 +334,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 037E143D286C592E0049B0C0 /* Build configuration list for PBXNativeTarget "KiliaroPhotoGalleryUITests" */;
 			buildPhases = (
+				D1E514AFD0F3FE1BBD4A2736 /* [CP] Check Pods Manifest.lock */,
 				037E1429286C592E0049B0C0 /* Sources */,
 				037E142A286C592E0049B0C0 /* Frameworks */,
 				037E142B286C592E0049B0C0 /* Resources */,
+				2BC89E6735DC2AF0A87DF523 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,6 +420,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BC89E6735DC2AF0A87DF523 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		637C0F7CE2F20CEE5734B7F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KiliaroPhotoGallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74E0ED62C23AFC6DBC712E2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery/Pods-KiliaroPhotoGallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery/Pods-KiliaroPhotoGallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KiliaroPhotoGallery/Pods-KiliaroPhotoGallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		857B6FEC760D451483C81E54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KiliaroPhotoGalleryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1E514AFD0F3FE1BBD4A2736 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		037E1409286C592B0049B0C0 /* Sources */ = {
@@ -564,6 +713,7 @@
 		};
 		037E1438286C592E0049B0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B585212971BB1874AA8A2221 /* Pods-KiliaroPhotoGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -593,6 +743,7 @@
 		};
 		037E1439286C592E0049B0C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECCE3C16B858A49F4B8E4A66 /* Pods-KiliaroPhotoGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -622,6 +773,7 @@
 		};
 		037E143B286C592E0049B0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08967458AD0505C945E255C9 /* Pods-KiliaroPhotoGalleryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -642,6 +794,7 @@
 		};
 		037E143C286C592E0049B0C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651105806D188B36A2AAA92E /* Pods-KiliaroPhotoGalleryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -662,6 +815,7 @@
 		};
 		037E143E286C592E0049B0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EF907FE93DF752943C49EC0 /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -680,6 +834,7 @@
 		};
 		037E143F286C592E0049B0C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2E1E8EDE2E137484C0C8C0F /* Pods-KiliaroPhotoGallery-KiliaroPhotoGalleryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
