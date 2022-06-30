@@ -32,11 +32,18 @@ class ImageView: UIImageView {
             return
         }
 
-        self.kf.cancelDownloadTask()
-        let resource = ImageResource(downloadURL: url, cacheKey: urlString)
-        self.kf.setImage(with: resource,
-                         placeholder: placeholderImage,
-                         options: [.transition(.fade(0.25))])
+        self.kf.indicatorType = .activity
+
+        KF.url(url)
+            .placeholder(placeholderImage)
+            .loadDiskFileSynchronously()
+            .cacheMemoryOnly()
+            .cacheOriginalImage()
+            .fade(duration: 0.25)
+            .onProgress { receivedSize, totalSize in  }
+            .onSuccess { result in  }
+            .onFailure { error in }
+            .set(to: self)
     }
 
     deinit {
