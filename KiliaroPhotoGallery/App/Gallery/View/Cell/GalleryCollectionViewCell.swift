@@ -51,13 +51,35 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        
-        imageView.setImage(urlString: isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl)
+        let url = imageUrl()
+        print("URL-> \(url)")
+        imageView.setImage(urlString: url)
 
         if isFullScreen {
             dateLabel.isHidden = false
         }
         dateLabel.text = viewModel.createdAt
+    }
+
+    private func imageUrl() -> String {
+
+        guard let viewModel = viewModel else {
+            return ""
+        }
+
+        let height = isFullScreen ? Int(UIScreen.main.bounds.height) : 250//Int(self.contentView.bounds.height)
+        let width = isFullScreen ? Int(UIScreen.main.bounds.width) : 250//Int(self.contentView.bounds.width)
+        let resizeMode: ResizeMode = isFullScreen ? .bb : .crop
+        let url = isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl
+
+        let imageSize = ImageSizeHandler()
+            .setUrl(url)
+            .setHeight(height)
+            .setWidth(width)
+            .setResizeMode(resizeMode)
+            .setIsFullScreen(isFullScreen)
+
+        return imageSize.buildUrl()
     }
 
 }
