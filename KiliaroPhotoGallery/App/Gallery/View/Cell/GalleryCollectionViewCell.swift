@@ -28,7 +28,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
 
-        let radius = UIScreen.main.bounds.width * 0.07
+        let radius = UIScreen.main.bounds.width * 0.00
         imageView.setCornerRadius(radius)
     }
 

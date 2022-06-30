@@ -117,32 +117,84 @@ extension GalleyViewController: UICollectionViewDelegate {
 extension GalleyViewController {
     static func createLayout() -> UICollectionViewCompositionalLayout {
 
-        let margin: CGFloat = UIScreen.main.bounds.width * 0.01
+        // dynamic margin size
+        let margin: CGFloat = 1
 
-        // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
-                                              heightDimension: .fractionalWidth(1/3))
+        // MARK: - Triple item
+
+        // size of the each item
+        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
+                                                   heightDimension: .fractionalHeight(1))
+        let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
+
+        // margin of the each item
+        smallItem.contentInsets = NSDirectionalEdgeInsets(top: margin,
+                                                          leading: margin,
+                                                          bottom: margin,
+                                                          trailing: margin)
+        let tripleGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                     heightDimension: .fractionalWidth(1/3))
+        let tripleGroup = NSCollectionLayoutGroup.horizontal(layoutSize: tripleGroupSize,
+                                                             subitems: [smallItem, smallItem, smallItem])
 
 
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        // MARK: - Main with pair item
 
-        item.contentInsets = NSDirectionalEdgeInsets(top: margin,
-                                                     leading: margin,
-                                                     bottom: margin,
-                                                     trailing: margin)
+        // large item
+        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(2/3),
+                                                   heightDimension: .fractionalHeight(1))
+        let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
+        largeItem.contentInsets = NSDirectionalEdgeInsets(top: margin,
+                                                          leading: margin,
+                                                          bottom: margin,
+                                                          trailing: margin)
+        // pair item
+        let pairItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                  heightDimension: .fractionalHeight(1/2))
+        let pairItem = NSCollectionLayoutItem(layoutSize: pairItemSize)
+        pairItem.contentInsets = NSDirectionalEdgeInsets(top: margin,
+                                                         leading: margin,
+                                                         bottom: margin,
+                                                         trailing: margin)
+
+        let trailingGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
+                                                       heightDimension: .fractionalHeight(1))
+        let trailingGroup = NSCollectionLayoutGroup.vertical(layoutSize: trailingGroupSize,
+                                                             subitem: pairItem,
+                                                             count: 2)
+
+        /// Merge the large and pair group
+        let largeWithPairGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalWidth(2/3))
+        let largeWithPairGroup = NSCollectionLayoutGroup.horizontal(layoutSize: largeWithPairGroupSize,
+                                                                    subitems: [largeItem,
+                                                                               trailingGroup])
 
 
-        // Group
-        let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalWidth(1/3))
+        // MARK: - Pair with main item
+        let largeWithPairGroupReverse = NSCollectionLayoutGroup.horizontal(layoutSize: largeWithPairGroupSize,
+                                                                           subitems: [trailingGroup,
+                                                                                      largeItem])
 
-        let verticalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize,
-                                                             subitems: [item])
+        // MARK: - Vertical group
 
-        // Sections
+        /// heightDimension is equal to sum of the all other groups heightDimension.
+        /// All other group is => largeWithPairGroup, tripleGroup, largeWithPairGroupReverse, tripleGroup (2/3 + 1/3 + 2/3 + 1/3)
+        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .fractionalWidth(6/3))
+
+        let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
+                                                             subitems: [largeWithPairGroup,
+                                                                        tripleGroup,
+                                                                        largeWithPairGroupReverse,
+                                                                        tripleGroup])
+
+        // MARK: - Sections
+
         let section = NSCollectionLayoutSection(group: verticalGroup)
 
-        // Return
+        // MARK: - Return
+
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
