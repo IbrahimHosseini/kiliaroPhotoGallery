@@ -20,18 +20,28 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KmY-la-foC" customClass="ImageView" customModule="KiliaroPhotoGallery" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="121"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-Dh-pRc">
+                        <rect key="frame" x="16" y="68" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pZt-Dh-pRc" secondAttribute="trailing" constant="16" id="7XG-J9-wvb"/>
                 <constraint firstItem="KmY-la-foC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ac4-lv-lTm"/>
                 <constraint firstAttribute="bottom" secondItem="KmY-la-foC" secondAttribute="bottom" id="Dmp-80-0Ju"/>
+                <constraint firstAttribute="bottom" secondItem="pZt-Dh-pRc" secondAttribute="bottom" constant="32" id="XB9-gM-dbG"/>
                 <constraint firstAttribute="trailing" secondItem="KmY-la-foC" secondAttribute="trailing" id="Xw7-3L-Kb4"/>
                 <constraint firstItem="KmY-la-foC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fg8-xd-myK"/>
+                <constraint firstItem="pZt-Dh-pRc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="hrP-G8-1yv"/>
             </constraints>
             <size key="customSize" width="124" height="121"/>
             <connections>
+                <outlet property="dateLabel" destination="pZt-Dh-pRc" id="qn8-o4-TWl"/>
                 <outlet property="imageView" destination="KmY-la-foC" id="BMt-Nf-O5Y"/>
             </connections>
             <point key="canvasLocation" x="191.30434782608697" y="107.47767857142857"/>

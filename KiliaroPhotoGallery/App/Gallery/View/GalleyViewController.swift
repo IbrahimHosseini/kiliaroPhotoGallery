@@ -15,12 +15,6 @@ class GalleyViewController: UIViewController {
 
     // MARK: - Properties
     var collectionView: UICollectionView = {
-
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: createLayout())
         return collectionView
@@ -100,7 +94,13 @@ extension GalleyViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: tap on image and show full screen image
+        let vc = UIStoryboard.main.instantiate(viewController: FullScreenImageViewController.self)
+        if let gallery = self.viewMode.gallery {
+            vc.initWith(gallery, indexPath: indexPath)
+            let navigation = UINavigationController(rootViewController: vc)
+            navigation.modalPresentationStyle = .overFullScreen
+            present(navigation, animated: true)
+        }
     }
 }
 
