@@ -16,7 +16,6 @@ struct Endpoint {
 extension Endpoint {
     static let shared = "/shared"
 
-
     var url: URL {
         var component = URLComponents()
         component.scheme = ConfigurationUrl.shared.scheme

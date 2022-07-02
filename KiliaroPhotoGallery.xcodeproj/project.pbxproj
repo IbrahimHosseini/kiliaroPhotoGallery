@@ -257,7 +257,6 @@
 			children = (
 				03CED9B0286F2537000C097B /* Constant */,
 				03BD2B98286C5CA6005A60B0 /* Gallery */,
-				037E1416286C592B0049B0C0 /* Main.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -279,6 +278,7 @@
 				03BD2BB6286C7DF0005A60B0 /* Cell */,
 				03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */,
 				03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */,
+				037E1416286C592B0049B0C0 /* Main.storyboard */,
 				03DDD18F286E1CFE007D7246 /* ShareViewController.swift */,
 			);
 			path = View;

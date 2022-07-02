@@ -9,13 +9,6 @@ import Foundation
 import Cache
 import UIKit
 
-protocol CacheHandlerInterface {
-    func set(diskConfig: DiskConfig)
-    func set(memoryConfig: MemoryConfig)
-
-    func save(object: [Media])
-}
-
 class CacheHandler {
     static let shared = CacheHandler()
 
@@ -57,7 +50,7 @@ class CacheHandler {
 
     }
 
-    // MARK: - Store media
+    // MARK: - Store object
     private func setStorageImage() {
         storageImage = try? Storage<String, UIImage>(diskConfig: diskConfig,
                                                      memoryConfig: memoryConfig,

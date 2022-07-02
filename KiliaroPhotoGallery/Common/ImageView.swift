@@ -43,8 +43,7 @@ class ImageView: UIImageView {
             .cacheOriginalImage()
             .fade(duration: 0.25)
             .onSuccess { result in
-                CacheHandler.shared
-                    .save(image: result.image,
+                self.save(result.image,
                           forKey: url.absoluteString)
             }
             .onFailure { error in }
@@ -53,6 +52,12 @@ class ImageView: UIImageView {
 
     deinit {
         self.kf.cancelDownloadTask()
+    }
+
+    private func save(_ image: UIImage, forKey: String) {
+        CacheHandler.shared
+            .save(image: image,
+                  forKey: forKey)
     }
 }
 
