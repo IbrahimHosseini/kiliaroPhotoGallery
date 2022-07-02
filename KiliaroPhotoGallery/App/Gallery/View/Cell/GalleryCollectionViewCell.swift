@@ -67,7 +67,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         if isFullScreen {
             dateLabel.isHidden = false
         }
-        dateLabel.text = viewModel.createdAt
+        dateLabel.text = viewModel.createdAt.toDate
     }
 
     private func imageUrl() -> String {

@@ -30,6 +30,7 @@
 		03BD2BBC286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BBB286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift */; };
 		03CED9B2286F2541000C097B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CED9B1286F2541000C097B /* Constants.swift */; };
 		03CED9B4287025F3000C097B /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CED9B3287025F3000C097B /* CacheHandler.swift */; };
+		03D3079A2870C0770024ACE9 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D307992870C0770024ACE9 /* String+Date.swift */; };
 		03DDD182286D0DF4007D7246 /* UICollection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD181286D0DF4007D7246 /* UICollection+Register.swift */; };
 		03DDD184286D0E3B007D7246 /* UICollection+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD183286D0E3B007D7246 /* UICollection+dequeue.swift */; };
 		03DDD186286DA7D2007D7246 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */; };
@@ -94,6 +95,7 @@
 		03CED9AF286F2499000C097B /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		03CED9B1286F2541000C097B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		03CED9B3287025F3000C097B /* CacheHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHandler.swift; sourceTree = "<group>"; };
+		03D307992870C0770024ACE9 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		03DDD181286D0DF4007D7246 /* UICollection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+Register.swift"; sourceTree = "<group>"; };
 		03DDD183286D0E3B007D7246 /* UICollection+dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+dequeue.swift"; sourceTree = "<group>"; };
 		03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				03DDD193286E370B007D7246 /* UIView+Border.swift */,
 				033264B1286CF5AF00A175F2 /* UIView+Radius.swift */,
 				03DDD195286E3724007D7246 /* UIView+shadow.swift */,
+				03D307992870C0770024ACE9 /* String+Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D3079A2870C0770024ACE9 /* String+Date.swift in Sources */,
 				03DDD196286E3724007D7246 /* UIView+shadow.swift in Sources */,
 				03DDD182286D0DF4007D7246 /* UICollection+Register.swift in Sources */,
 				03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */,
