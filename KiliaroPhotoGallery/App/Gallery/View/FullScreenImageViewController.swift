@@ -31,6 +31,10 @@ class FullScreenImageViewController: UIViewController {
         setupView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     // MARK: - Functions
 
     fileprivate func setupView() {
@@ -42,10 +46,12 @@ class FullScreenImageViewController: UIViewController {
                                     at: .top,
                                     animated: false)
 
-        title = "Image Gallery"
-
         backBarButtonItem()
     }
+
+//    fileprivate func navigationTitle(_ title: String) {
+//        self.title = title
+//    }
 
     // MARK: - Actions
     fileprivate func backBarButtonItem() {

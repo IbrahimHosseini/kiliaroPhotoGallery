@@ -42,6 +42,21 @@ class CacheHandler {
         return self
     }
 
+    func removeAll() {
+        guard let storage = storage,
+              let storageImage = storageImage
+        else { return }
+
+        do {
+            try storage.removeAll()
+            try storageImage.removeAll()
+            print("remove all data")
+        } catch {
+            print(error)
+        }
+
+    }
+
     // MARK: - Store media
     private func setStorageImage() {
         storageImage = try? Storage<String, UIImage>(diskConfig: diskConfig,

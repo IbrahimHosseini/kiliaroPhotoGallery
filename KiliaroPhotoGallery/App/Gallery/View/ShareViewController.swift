@@ -51,9 +51,13 @@ class ShareViewController: UIViewController {
 
         userImage.backgroundColor = .white
 
-        userImage.image = UIImage(systemName: "person.fill")
+        userImage.image = UIImage(named: "user")
+        userImage.contentMode = .scaleAspectFit
+
+        userImage.tintColor = ._2C2649
 
         viewContainer.setShadow()
+        viewContainer.backgroundColor = .white
 
         labelCount.text = ""
         labelCount.isUserInteractionEnabled = true
@@ -61,6 +65,36 @@ class ShareViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(more))
         labelCount.addGestureRecognizer(tap)
+
+        clearCacheButtonItem()
+
+    }
+
+    fileprivate func clearCacheButtonItem() {
+        let back = UIBarButtonItem(barButtonSystemItem: .trash,
+                                   target: self,
+                                   action: #selector(popUpView))
+        navigationController?.navigationBar.tintColor = ._2C2649
+        navigationItem.rightBarButtonItem = back
+    }
+
+    @objc fileprivate func popUpView() {
+        let alert = UIAlertController(title: "Clear Cache",
+                                      message: "After a clear cache, all data will be lost!",
+                                      preferredStyle: .actionSheet)
+
+        let clear = UIAlertAction(title: "Clear", style: .destructive) { action in
+            CacheHandler.shared.removeAll()
+            //TODO: call refresh view
+        }
+
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+
+        alert.addAction(clear)
+        alert.addAction(cancel)
+
+        present(alert,
+                animated: true)
 
     }
 

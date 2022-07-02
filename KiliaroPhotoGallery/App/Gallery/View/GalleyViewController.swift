@@ -32,9 +32,12 @@ class GalleyViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.frame
         setupCollectionView()
+
+        title = "Galley Images"
     }
 
     // MARK: - Actions
+
 }
 
 // MARK: - collection view data source
