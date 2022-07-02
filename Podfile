@@ -5,7 +5,7 @@ target 'KiliaroPhotoGallery' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 	pod 'Kingfisher', '~> 7.1.1'
-  # Pods for KiliaroPhotoGallery
+  pod 'Cache'
 
   target 'KiliaroPhotoGalleryTests' do
     inherit! :search_paths
