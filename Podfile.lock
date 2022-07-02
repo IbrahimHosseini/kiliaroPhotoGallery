@@ -1,0 +1,24 @@
+PODS:
+  - Cache (6.0.0)
+  - Kingfisher (7.1.2)
+  - SPIndicator (1.6.4)
+
+DEPENDENCIES:
+  - Cache
+  - Kingfisher (~> 7.1.1)
+  - SPIndicator
+
+SPEC REPOS:
+  trunk:
+    - Cache
+    - Kingfisher
+    - SPIndicator
+
+SPEC CHECKSUMS:
+  Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
+
+PODFILE CHECKSUM: 36cea49449436f70a5029714c6cda6e7950f522c
+
+COCOAPODS: 1.11.3
