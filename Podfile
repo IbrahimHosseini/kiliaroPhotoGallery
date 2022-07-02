@@ -6,6 +6,7 @@ target 'KiliaroPhotoGallery' do
   use_frameworks!
 	pod 'Kingfisher', '~> 7.1.1'
   pod 'Cache'
+  pod 'SPIndicator'
 
   target 'KiliaroPhotoGalleryTests' do
     inherit! :search_paths

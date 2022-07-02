@@ -49,10 +49,6 @@ class FullScreenImageViewController: UIViewController {
         backBarButtonItem()
     }
 
-//    fileprivate func navigationTitle(_ title: String) {
-//        self.title = title
-//    }
-
     // MARK: - Actions
     fileprivate func backBarButtonItem() {
        let back = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(back))
@@ -62,7 +58,6 @@ class FullScreenImageViewController: UIViewController {
     @objc fileprivate func back() {
         dismiss(animated: true)
     }
-
 }
 
 // MARK: - collection view data source

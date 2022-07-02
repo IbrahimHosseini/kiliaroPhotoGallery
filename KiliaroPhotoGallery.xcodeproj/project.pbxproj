@@ -31,6 +31,9 @@
 		03CED9B2286F2541000C097B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CED9B1286F2541000C097B /* Constants.swift */; };
 		03CED9B4287025F3000C097B /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CED9B3287025F3000C097B /* CacheHandler.swift */; };
 		03D3079A2870C0770024ACE9 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D307992870C0770024ACE9 /* String+Date.swift */; };
+		03D3079C2870CBA80024ACE9 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3079B2870CBA80024ACE9 /* Indicator.swift */; };
+		03D3079E2870CE270024ACE9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3079D2870CE270024ACE9 /* Reachability.swift */; };
+		03D307A02870CEA70024ACE9 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3079F2870CEA70024ACE9 /* NotificationNames.swift */; };
 		03DDD182286D0DF4007D7246 /* UICollection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD181286D0DF4007D7246 /* UICollection+Register.swift */; };
 		03DDD184286D0E3B007D7246 /* UICollection+dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD183286D0E3B007D7246 /* UICollection+dequeue.swift */; };
 		03DDD186286DA7D2007D7246 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */; };
@@ -96,6 +99,9 @@
 		03CED9B1286F2541000C097B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		03CED9B3287025F3000C097B /* CacheHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHandler.swift; sourceTree = "<group>"; };
 		03D307992870C0770024ACE9 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		03D3079B2870CBA80024ACE9 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		03D3079D2870CE270024ACE9 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		03D3079F2870CEA70024ACE9 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		03DDD181286D0DF4007D7246 /* UICollection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+Register.swift"; sourceTree = "<group>"; };
 		03DDD183286D0E3B007D7246 /* UICollection+dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+dequeue.swift"; sourceTree = "<group>"; };
 		03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
@@ -352,8 +358,11 @@
 		03DDD18B286DD8E9007D7246 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				03DDD18C286DD8FC007D7246 /* ImageSizeHandler.swift */,
 				03CED9B3287025F3000C097B /* CacheHandler.swift */,
+				03DDD18C286DD8FC007D7246 /* ImageSizeHandler.swift */,
+				03D3079B2870CBA80024ACE9 /* Indicator.swift */,
+				03D3079F2870CEA70024ACE9 /* NotificationNames.swift */,
+				03D3079D2870CE270024ACE9 /* Reachability.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -628,11 +637,14 @@
 				03DDD182286D0DF4007D7246 /* UICollection+Register.swift in Sources */,
 				03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */,
 				03FCF150286CFF03005917B4 /* GalleryCollectionViewCell.swift in Sources */,
+				03D307A02870CEA70024ACE9 /* NotificationNames.swift in Sources */,
 				037E1411286C592B0049B0C0 /* AppDelegate.swift in Sources */,
 				03DDD194286E370B007D7246 /* UIView+Border.swift in Sources */,
 				03BD2BB3286C7AB8005A60B0 /* ServerProtocol.swift in Sources */,
+				03D3079E2870CE270024ACE9 /* Reachability.swift in Sources */,
 				03CED9B2286F2541000C097B /* Constants.swift in Sources */,
 				03BD2B9E286C5D3F005A60B0 /* GalleryViewModel.swift in Sources */,
+				03D3079C2870CBA80024ACE9 /* Indicator.swift in Sources */,
 				03BD2BAF286C6FE3005A60B0 /* ConfigurationUrl.swift in Sources */,
 				03BD2BB1286C7197005A60B0 /* Endpoint.swift in Sources */,
 				03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */,
