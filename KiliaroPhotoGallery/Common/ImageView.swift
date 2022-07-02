@@ -25,7 +25,8 @@ class ImageView: UIImageView {
         clipsToBounds = true
     }
 
-    public func setImage(urlString: String, placeholderImage: UIImage? = nil) {
+    public func setImage(urlString: String,
+                         placeholderImage: UIImage = UIImage(named: "appLogo")!) {
 
         guard let url = URL(string: urlString) else {
             self.image = placeholderImage
@@ -38,6 +39,7 @@ class ImageView: UIImageView {
             .placeholder(placeholderImage)
             .loadDiskFileSynchronously()
             .cacheMemoryOnly()
+            .keepCurrentImageWhileLoading()
             .cacheOriginalImage()
             .fade(duration: 0.25)
             .onProgress { receivedSize, totalSize in  }

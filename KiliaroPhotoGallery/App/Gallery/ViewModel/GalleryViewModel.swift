@@ -8,16 +8,20 @@
 import Foundation
 import Combine
 
-class GalleryViewModel {
-    @Published var gallery: [GalleryCollectionViewModel]? = []
+protocol GalleryViewModelInterface {
+    var galleryPublisher: PassthroughSubject<[GalleryCollectionViewModel]?, Never> { get }
+    func getSharedMedia(_ sharedKey: String)
+}
 
-    private var service: SharedMediaService
+class GalleryViewModel: GalleryViewModelInterface {
+    var galleryPublisher = PassthroughSubject<[GalleryCollectionViewModel]?, Never>()
+
+    private var service: SharedMediaProtocol
 
     private var cancellable = Set<AnyCancellable>()
 
-    init() {
-        let network = NetworkController()
-        service = SharedMediaService(network: network)
+    init(service: SharedMediaProtocol) {
+        self.service = service
     }
 
     // MARK: Methods
@@ -33,7 +37,7 @@ class GalleryViewModel {
             } receiveValue: { [weak self] response in
                 guard let self = self else { return }
 
-                self.gallery = response
+                let data = response
                     .map { elements -> [GalleryCollectionViewModel]? in
                         var data: [GalleryCollectionViewModel] = []
                         elements.forEach { media in
@@ -41,6 +45,7 @@ class GalleryViewModel {
                         }
                         return data
                     }!
+                self.galleryPublisher.send(data)
             }
             .store(in: &cancellable)
     }

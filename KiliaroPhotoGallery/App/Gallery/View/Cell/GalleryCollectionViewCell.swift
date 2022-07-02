@@ -82,4 +82,9 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return imageSize.buildUrl()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+
 }

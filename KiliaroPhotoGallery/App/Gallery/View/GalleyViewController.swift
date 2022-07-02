@@ -10,9 +10,6 @@ import Combine
 
 class GalleyViewController: UIViewController {
 
-    // MARK: - Outlets
-
-
     // MARK: - Properties
     var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero,

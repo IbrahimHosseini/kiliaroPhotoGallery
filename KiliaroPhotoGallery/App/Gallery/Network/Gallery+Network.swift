@@ -26,7 +26,7 @@ protocol SharedMediaProtocol: ServiceProtocol {
 final class SharedMediaService: SharedMediaProtocol {
     var networkController: NetworkControllerProtocol
 
-    init(network: NetworkController) {
+    init(network: NetworkControllerProtocol) {
         self.networkController = network
     }
 

@@ -22,9 +22,11 @@ class ShareViewController: UIViewController {
     // MARK: - Properties
     var cancellable = Set<AnyCancellable>()
 
-    let viewMode = GalleryViewModel()
+    var viewModel: GalleryViewModelInterface!
 
-    private let sharedKey = "djlCbGusTJamg_ca4axEVw"
+    func initWith(_ viewModel: GalleryViewModelInterface) {
+        self.viewModel = viewModel
+    }
 
     private var gallery: [GalleryCollectionViewModel] = []
 
@@ -63,7 +65,7 @@ class ShareViewController: UIViewController {
     }
 
     fileprivate func setupBinding() {
-        viewMode.$gallery
+        viewModel.galleryPublisher
             .receive(on: RunLoop.main)
             .sink {[weak self] gallery in
                 guard let self = self,
@@ -78,7 +80,7 @@ class ShareViewController: UIViewController {
     }
 
     func loadData() {
-        viewMode.getSharedMedia(sharedKey)
+        viewModel.getSharedMedia(Constants.sharedKey)
     }
 
     fileprivate func refreshView() {
