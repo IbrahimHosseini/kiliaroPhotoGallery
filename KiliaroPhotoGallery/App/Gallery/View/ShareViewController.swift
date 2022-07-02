@@ -72,36 +72,88 @@ class ShareViewController: UIViewController {
                       let gallery = gallery
                 else { return }
                 if gallery.count > 0 {
-                    self.gallery = gallery
-                    self.refreshView()
+                    self.refreshView(data: gallery)
                 }
             }
             .store(in: &cancellable)
     }
 
     func loadData() {
-        viewModel.getSharedMedia(Constants.sharedKey)
+        let key = Constants.sharedKey
+        CacheHandler.shared.load(object: key) { [weak self] media in
+            let data = media
+                .map { elements -> [GalleryCollectionViewModel] in
+                    var dataGallery: [GalleryCollectionViewModel] = []
+                    elements.forEach { media in
+                        dataGallery.append(GalleryCollectionViewModel(media))
+                    }
+                    return dataGallery
+                }
+
+            guard let data = data else {
+                self?.viewModel.getSharedMedia(key)
+                return
+            }
+            self?.refreshView(data: data)
+        }
     }
 
-    fileprivate func refreshView() {
+    fileprivate func refreshView(data: [GalleryCollectionViewModel]) {
+        self.gallery = data
         let count = gallery.count
-        labelCount.text = "+\(count - 3)"
-        descriptionLabel.text = "shared \(count) photos with you!"
+        DispatchQueue.main.async {
+            self.labelCount.text = "+\(count - 3)"
+            self.descriptionLabel.text = "shared \(count) photos with you!"
 
-        let firstImageUrl = imageUrl(gallery[0].thumbnailUrl)
-        firstImageView.setImage(urlString: firstImageUrl)
+            let firstImageUrl = self.imageUrl(data[0].thumbnailUrl)
+            CacheHandler.shared
+                .load(image: firstImageUrl) { image in
+                    guard let image = image else {
+                        DispatchQueue.main.async {
+                            self.firstImageView.setImage(urlString: firstImageUrl)
+                        }
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.firstImageView.image = image
+                    }
+                }
 
-        let secondImageUrl = imageUrl(gallery[1].thumbnailUrl)
-        secondImageView.setImage(urlString: secondImageUrl)
+            let secondImageUrl = self.imageUrl(data[1].thumbnailUrl)
+            CacheHandler.shared
+                .load(image: secondImageUrl) { image in
+                    guard let image = image else {
+                        DispatchQueue.main.async {
+                            self.secondImageView.setImage(urlString: secondImageUrl)
+                        }
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.secondImageView.image = image
+                    }
+                }
 
-        let thirdImageUrl = imageUrl(gallery[2].thumbnailUrl)
-        thirdImageView.setImage(urlString: thirdImageUrl)
+            let thirdImageUrl = self.imageUrl(data[2].thumbnailUrl)
+            CacheHandler.shared
+                .load(image: thirdImageUrl) { image in
+                    guard let image = image else {
+                        DispatchQueue.main.async {
+                            self.thirdImageView.setImage(urlString: thirdImageUrl)
+                        }
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.thirdImageView.image = image
+                    }
+                }
+        }
     }
 
     fileprivate func imageUrl(_ url: String) -> String {
         let url = ImageSizeHandler()
-            .setUrl(url)
-
+            .set(width: 150)
+            .set(height: 150)
+            .set(url: url)
         return url.buildUrl()
     }
 

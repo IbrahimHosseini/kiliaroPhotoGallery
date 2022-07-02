@@ -42,8 +42,11 @@ class ImageView: UIImageView {
             .keepCurrentImageWhileLoading()
             .cacheOriginalImage()
             .fade(duration: 0.25)
-            .onProgress { receivedSize, totalSize in  }
-            .onSuccess { result in  }
+            .onSuccess { result in
+                CacheHandler.shared
+                    .save(image: result.image,
+                          forKey: url.absoluteString)
+            }
             .onFailure { error in }
             .set(to: self)
     }

@@ -44,7 +44,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     public func fill(_ data: GalleryCollectionViewModel, isFullScreen: Bool = false) {
         self.isFullScreen = isFullScreen
         self.viewModel = data
-
     }
 
     fileprivate func setupBinding() {
@@ -52,8 +51,18 @@ class GalleryCollectionViewCell: UICollectionViewCell {
             return
         }
         let url = imageUrl()
-        print("URL-> \(url)")
-        imageView.setImage(urlString: url)
+        CacheHandler.shared
+            .load(image: url) { image in
+                guard let image = image else {
+                    DispatchQueue.main.async {
+                        self.imageView.setImage(urlString: url)
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
+            }
 
         if isFullScreen {
             dateLabel.isHidden = false
@@ -73,11 +82,11 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         let url = isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl
 
         let imageSize = ImageSizeHandler()
-            .setUrl(url)
-            .setHeight(height)
-            .setWidth(width)
-            .setResizeMode(resizeMode)
-            .setIsFullScreen(isFullScreen)
+            .set(url: url)
+            .set(height: height)
+            .set(width: width)
+            .set(resize: resizeMode)
+            .set(isFullScreen: isFullScreen)
 
         return imageSize.buildUrl()
     }

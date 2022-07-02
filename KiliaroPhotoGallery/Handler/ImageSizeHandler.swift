@@ -14,27 +14,27 @@ class ImageSizeHandler {
     private var url = ""
     private var isFullScreen = false
 
-    func setUrl(_ url: String) -> ImageSizeHandler {
+    func set(url: String) -> ImageSizeHandler {
         self.url = url
         return self
     }
 
-    func setResizeMode(_ mode: ResizeMode) -> ImageSizeHandler {
+    func set(resize mode: ResizeMode) -> ImageSizeHandler {
         self.resizeMode = mode
         return self
     }
 
-    func setHeight(_ height: Int) -> ImageSizeHandler {
+    func set(height: Int) -> ImageSizeHandler {
         self.height = height
         return self
     }
 
-    func setWidth(_ width: Int) -> Self {
+    func set(width: Int) -> Self {
         self.width = width
         return self
     }
 
-    func setIsFullScreen(_ isFullScreen: Bool) -> ImageSizeHandler {
+    func set(isFullScreen: Bool) -> ImageSizeHandler {
         self.isFullScreen = isFullScreen
         return self
     }

@@ -25,6 +25,11 @@ class GalleryViewModel: GalleryViewModelInterface {
     }
 
     // MARK: Methods
+    fileprivate func saveToCache(_ response: [Media]) {
+        CacheHandler.shared
+            .save(object: response)
+    }
+
     func getSharedMedia(_ sharedKey: String) {
         service.getSharedMedia(sharedKey)
             .sink { completion in
@@ -46,7 +51,14 @@ class GalleryViewModel: GalleryViewModelInterface {
                         return data
                     }!
                 self.galleryPublisher.send(data)
+                if let response = response {
+                    self.saveToCache(response)
+                }
             }
             .store(in: &cancellable)
+    }
+
+    private func checkCacheData() {
+
     }
 }
