@@ -1,3 +1,9 @@
+fastlane_require "dotenv"
+
+before_all do
+	Dotenv.load ".env.secret"
+end
+
 desc "Create on developer portal and App Store Connect"
 lane :create_app do
 create_app_online # produce
@@ -29,5 +35,6 @@ platform :ios do
   desc "Release"
   lane :release do
 	build
+	upload_to_app_store # deliver
   end
 end
