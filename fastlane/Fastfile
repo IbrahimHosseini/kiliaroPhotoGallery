@@ -34,7 +34,18 @@ platform :ios do
 
   desc "Release"
   lane :release do
+	ensure_git_status_clean
+	ensure_git_branch
+
+	add_git_tag
+	push_git_tag
+
 	build
 	upload_to_app_store # deliver
+  	
+	reset_git_repo
+
+	set_github_release
+
   end
 end
