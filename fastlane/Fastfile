@@ -22,7 +22,8 @@ platform :ios do
   
   desc "Build"
   lane :build do
-	signing  
+	signing
+	build_ios_app  
   end
 
   desc "Release"
