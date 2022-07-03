@@ -22,7 +22,7 @@ class ShareViewController: UIViewController {
     // MARK: - Properties
     var cancellable = Set<AnyCancellable>()
 
-    var viewModel: GalleryViewModelInterface!
+    var viewModel: GalleryViewModelInterface?
 
     func initWith(_ viewModel: GalleryViewModelInterface) {
         self.viewModel = viewModel
@@ -138,7 +138,7 @@ class ShareViewController: UIViewController {
     }
 
     fileprivate func setupBinding() {
-        viewModel.galleryPublisher
+        viewModel?.galleryPublisher
             .receive(on: RunLoop.main)
             .sink {[weak self] gallery in
                 guard let self = self,
@@ -164,7 +164,7 @@ class ShareViewController: UIViewController {
                 }
 
             guard let data = data else {
-                self?.viewModel.getSharedMedia(key)
+                self?.viewModel?.getSharedMedia(key)
                 return
             }
             self?.refreshView(data: data)
@@ -231,7 +231,7 @@ class ShareViewController: UIViewController {
     }
 
     @objc fileprivate func more() {
-        let vc = UIStoryboard.main.instantiate(viewController: GalleyViewController.self)
+        let vc = UIStoryboard.main.instantiate(viewController: GalleryViewController.self)
         vc.gallery = self.gallery
         if let navigation = navigationController, self.gallery.count > 0 {
             navigation.pushViewController(vc, animated: true)

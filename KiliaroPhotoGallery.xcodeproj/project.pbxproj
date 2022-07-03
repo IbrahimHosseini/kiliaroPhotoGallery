@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030D216C2871CC280021E175 /* SharedViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D216B2871CC280021E175 /* SharedViewControllerTest.swift */; };
+		030D216E2871D0D80021E175 /* GalleryViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D216D2871D0D80021E175 /* GalleryViewControllerTest.swift */; };
+		030D21702871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D216F2871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift */; };
 		033264AE286CEB0500A175F2 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033264AD286CEB0500A175F2 /* ImageView.swift */; };
 		033264B2286CF5AF00A175F2 /* UIView+Radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033264B1286CF5AF00A175F2 /* UIView+Radius.swift */; };
 		037E1411286C592B0049B0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1410286C592B0049B0C0 /* AppDelegate.swift */; };
@@ -17,7 +20,7 @@
 		037E1428286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */; };
 		037E1432286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */; };
 		037E1434286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */; };
-		03BD2B9A286C5CD8005A60B0 /* GalleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */; };
+		03BD2B9A286C5CD8005A60B0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B99286C5CD8005A60B0 /* GalleryViewController.swift */; };
 		03BD2B9E286C5D3F005A60B0 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B9D286C5D3F005A60B0 /* GalleryViewModel.swift */; };
 		03BD2BA0286C5D6F005A60B0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B9F286C5D6F005A60B0 /* Model.swift */; };
 		03BD2BA3286C6252005A60B0 /* Gallery+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030D216B2871CC280021E175 /* SharedViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewControllerTest.swift; sourceTree = "<group>"; };
+		030D216D2871D0D80021E175 /* GalleryViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerTest.swift; sourceTree = "<group>"; };
+		030D216F2871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageCollectionViewControllerTest.swift; sourceTree = "<group>"; };
 		033264AD286CEB0500A175F2 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		033264B1286CF5AF00A175F2 /* UIView+Radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Radius.swift"; sourceTree = "<group>"; };
 		037E140D286C592B0049B0C0 /* KiliaroPhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiliaroPhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +90,7 @@
 		037E142D286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiliaroPhotoGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITests.swift; sourceTree = "<group>"; };
 		037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyViewController.swift; sourceTree = "<group>"; };
+		03BD2B99286C5CD8005A60B0 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		03BD2B9D286C5D3F005A60B0 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		03BD2B9F286C5D6F005A60B0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		03BD2BA2286C6252005A60B0 /* Gallery+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gallery+Network.swift"; sourceTree = "<group>"; };
@@ -154,6 +160,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030D216A2871CBED0021E175 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				030D216B2871CC280021E175 /* SharedViewControllerTest.swift */,
+				030D216D2871D0D80021E175 /* GalleryViewControllerTest.swift */,
+				030D216F2871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		033264AC286CEAF000A175F2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +233,7 @@
 		037E1426286C592E0049B0C0 /* KiliaroPhotoGalleryTests */ = {
 			isa = PBXGroup;
 			children = (
+				030D216A2871CBED0021E175 /* ViewControllers */,
 				03CED9AE286F2480000C097B /* Mock */,
 				037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */,
 			);
@@ -277,7 +294,7 @@
 			children = (
 				03BD2BB6286C7DF0005A60B0 /* Cell */,
 				03DDD185286DA7D2007D7246 /* FullScreenImageViewController.swift */,
-				03BD2B99286C5CD8005A60B0 /* GalleyViewController.swift */,
+				03BD2B99286C5CD8005A60B0 /* GalleryViewController.swift */,
 				037E1416286C592B0049B0C0 /* Main.storyboard */,
 				03DDD18F286E1CFE007D7246 /* ShareViewController.swift */,
 			);
@@ -655,7 +672,7 @@
 				03BD2BA7286C6425005A60B0 /* NetworkController.swift in Sources */,
 				03BD2BBC286C7E27005A60B0 /* GalleyCollectionCellViewModel.swift in Sources */,
 				033264AE286CEB0500A175F2 /* ImageView.swift in Sources */,
-				03BD2B9A286C5CD8005A60B0 /* GalleyViewController.swift in Sources */,
+				03BD2B9A286C5CD8005A60B0 /* GalleryViewController.swift in Sources */,
 				03DDD198286E37E1007D7246 /* UIColor.swift in Sources */,
 				03DDD18A286DAAD1007D7246 /* UIStoryboard.swift in Sources */,
 				03DDD184286D0E3B007D7246 /* UICollection+dequeue.swift in Sources */,
@@ -671,6 +688,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				037E1428286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift in Sources */,
+				030D21702871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift in Sources */,
+				030D216C2871CC280021E175 /* SharedViewControllerTest.swift in Sources */,
+				030D216E2871D0D80021E175 /* GalleryViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

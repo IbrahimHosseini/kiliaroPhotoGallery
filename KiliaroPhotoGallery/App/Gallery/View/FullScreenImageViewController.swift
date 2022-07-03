@@ -33,6 +33,9 @@ class FullScreenImageViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.scrollToItem(at: indexPath,
+                                    at: .top,
+                                    animated: false)
     }
 
     // MARK: - Functions
@@ -42,10 +45,6 @@ class FullScreenImageViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.frame
         setupCollectionView()
-        collectionView.scrollToItem(at: indexPath,
-                                    at: .top,
-                                    animated: false)
-
         backBarButtonItem()
     }
 
