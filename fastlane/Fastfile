@@ -11,11 +11,8 @@ end
 
 platform :ios do  
   before_all do
-	setup_circle_ci
-  end
-
-  before_all do
 	Dotenv.load ".env.ios"
+    	setup_circle_ci
   end
 
   desc "Sync singing. create a new distribution certificate"
