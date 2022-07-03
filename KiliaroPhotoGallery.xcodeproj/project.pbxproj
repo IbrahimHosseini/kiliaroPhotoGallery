@@ -17,7 +17,6 @@
 		037E1418286C592B0049B0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037E1416286C592B0049B0C0 /* Main.storyboard */; };
 		037E141A286C592E0049B0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037E1419286C592E0049B0C0 /* Assets.xcassets */; };
 		037E141D286C592E0049B0C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037E141B286C592E0049B0C0 /* LaunchScreen.storyboard */; };
-		037E1428286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */; };
 		037E1432286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */; };
 		037E1434286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */; };
 		03BD2B9A286C5CD8005A60B0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD2B99286C5CD8005A60B0 /* GalleryViewController.swift */; };
@@ -86,7 +85,6 @@
 		037E141C286C592E0049B0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		037E141E286C592E0049B0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037E1423286C592E0049B0C0 /* KiliaroPhotoGalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiliaroPhotoGalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryTests.swift; sourceTree = "<group>"; };
 		037E142D286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiliaroPhotoGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037E1431286C592E0049B0C0 /* KiliaroPhotoGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITests.swift; sourceTree = "<group>"; };
 		037E1433286C592E0049B0C0 /* KiliaroPhotoGalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiliaroPhotoGalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -170,6 +168,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		030D21712871D8720021E175 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
 		033264AC286CEAF000A175F2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,9 +238,9 @@
 		037E1426286C592E0049B0C0 /* KiliaroPhotoGalleryTests */ = {
 			isa = PBXGroup;
 			children = (
+				030D21712871D8720021E175 /* Handler */,
 				030D216A2871CBED0021E175 /* ViewControllers */,
 				03CED9AE286F2480000C097B /* Mock */,
-				037E1427286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift */,
 			);
 			path = KiliaroPhotoGalleryTests;
 			sourceTree = "<group>";
@@ -687,7 +692,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				037E1428286C592E0049B0C0 /* KiliaroPhotoGalleryTests.swift in Sources */,
 				030D21702871D3140021E175 /* FullScreenImageCollectionViewControllerTest.swift in Sources */,
 				030D216C2871CC280021E175 /* SharedViewControllerTest.swift in Sources */,
 				030D216E2871D0D80021E175 /* GalleryViewControllerTest.swift in Sources */,
