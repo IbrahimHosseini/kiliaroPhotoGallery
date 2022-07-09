@@ -10,6 +10,8 @@ import Kingfisher
 
 class ImageView: UIImageView {
 
+    private let cacheHandler = ImageCacheHandler()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -38,15 +40,8 @@ class ImageView: UIImageView {
     }
 
     private func setImage() {
-        guard let url = url else { return }
-        setImage(urlString: url,
-                 placeholderImage: placeholderImageName)
-    }
-
-    public func setImage(urlString: String,
-                         placeholderImage: UIImage = UIImage(named: "appLogo")!) {
-
-        load(image: urlString) { image in
+        guard let url = self.url else { return }
+        load(image: url) { image in
             if let image = image {
                 DispatchQueue.main.async {
                     self.image = image
@@ -55,15 +50,15 @@ class ImageView: UIImageView {
             }
         }
 
-        guard let url = URL(string: urlString) else {
-            self.image = placeholderImage
+        guard let url = URL(string: url) else {
+            self.image = placeholderImageName
             return
         }
 
         self.kf.indicatorType = .activity
 
         KF.url(url)
-            .placeholder(placeholderImage)
+            .placeholder(placeholderImageName)
             .loadDiskFileSynchronously()
             .cacheMemoryOnly()
             .keepCurrentImageWhileLoading()
@@ -83,17 +78,15 @@ class ImageView: UIImageView {
 
     private func save(image: UIImage,
                       forKey: String) {
-        CacheHandler.shared
-            .save(image: image,
-                  forKey: forKey)
+        cacheHandler.save(content: image,
+                          forKey: forKey)
     }
 
     private func load(image fromUrl: String,
                       completion: @escaping (UIImage?) -> Void) {
-        CacheHandler.shared
-            .load(image: fromUrl) { image in
-                completion(image)
-            }
+        cacheHandler.load(with: fromUrl) { image in
+            completion(image)
+        }
     }
 }
 

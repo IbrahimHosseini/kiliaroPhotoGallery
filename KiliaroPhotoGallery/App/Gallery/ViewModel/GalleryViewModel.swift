@@ -10,12 +10,15 @@ import Combine
 
 protocol GalleryViewModelInterface {
     var galleryPublisher: PassthroughSubject<[GalleryCollectionViewModel]?, Never> { get }
+
     func getSharedMedia(_ sharedKey: String)
     func removeAllMedia()
 }
 
 class GalleryViewModel: GalleryViewModelInterface {
     var galleryPublisher = PassthroughSubject<[GalleryCollectionViewModel]?, Never>()
+
+    private let cacheHandler = MediaCacheHandler()
 
     private var service: SharedMediaProtocol
 
@@ -26,9 +29,9 @@ class GalleryViewModel: GalleryViewModelInterface {
     }
 
     // MARK: Methods
-    fileprivate func saveMediaToCache(_ response: [Media]) {
-        CacheHandler.shared
-            .save(object: response)
+    fileprivate func saveMediaToCache(_ response: [Media], forKey: String) {
+        cacheHandler.save(content: response,
+                           forKey: forKey)
     }
 
     fileprivate func getMediaFromServer(_ sharedKey: String) {
@@ -53,36 +56,33 @@ class GalleryViewModel: GalleryViewModelInterface {
                     }!
                 self.galleryPublisher.send(data)
                 if let response = response {
-                    self.saveMediaToCache(response)
+                    self.saveMediaToCache(response,
+                                          forKey: sharedKey)
                 }
             }
             .store(in: &cancellable)
     }
 
     func getSharedMedia(_ sharedKey: String) {
-        CacheHandler.shared
-            .load(object: sharedKey) { [weak self] media in
-                let data = media
-                    .map { elements -> [GalleryCollectionViewModel] in
-                        var dataGallery: [GalleryCollectionViewModel] = []
-                        elements.forEach { media in
-                            dataGallery.append(GalleryCollectionViewModel(media))
-                        }
-                        return dataGallery
+        cacheHandler.load(with: sharedKey) { [weak self] media in
+            let data = media
+                .map { elements -> [GalleryCollectionViewModel] in
+                    var dataGallery: [GalleryCollectionViewModel] = []
+                    elements.forEach { media in
+                        dataGallery.append(GalleryCollectionViewModel(media))
                     }
-
-                guard let data = data else {
-                    self?.getMediaFromServer(sharedKey)
-                    return
+                    return dataGallery
                 }
-                self?.galleryPublisher.send(data)
+
+            guard let data = data else {
+                self?.getMediaFromServer(sharedKey)
+                return
             }
+            self?.galleryPublisher.send(data)
+        }
     }
 
     func removeAllMedia() {
-        CacheHandler.shared.removeAll()
+        cacheHandler.removeAll()
     }
-
-
-
 }

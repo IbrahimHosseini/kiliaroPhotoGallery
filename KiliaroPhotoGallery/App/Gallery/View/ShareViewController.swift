@@ -114,8 +114,8 @@ class ShareViewController: UIViewController {
 
     fileprivate func refreshBarButton() {
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh,
-                                   target: self,
-                                   action: #selector(loadData))
+                                      target: self,
+                                      action: #selector(loadData))
         navigationController?.navigationBar.tintColor = .russianViolet
         navigationItem.leftBarButtonItem = refresh
     }
@@ -170,13 +170,13 @@ class ShareViewController: UIViewController {
             self.descriptionLabel.text = "shared \(count) photos with you!"
 
             let firstImageUrl = self.imageUrl(data[0].thumbnailUrl)
-            self.firstImageView.setImage(urlString: firstImageUrl)
+            self.firstImageView.url = firstImageUrl
 
             let secondImageUrl = self.imageUrl(data[1].thumbnailUrl)
-            self.secondImageView.setImage(urlString: secondImageUrl)
+            self.secondImageView.url = secondImageUrl
 
             let thirdImageUrl = self.imageUrl(data[2].thumbnailUrl)
-            self.thirdImageView.setImage(urlString: thirdImageUrl)
+            self.thirdImageView.url = thirdImageUrl
         }
     }
 
@@ -195,8 +195,6 @@ class ShareViewController: UIViewController {
             navigation.pushViewController(vc, animated: true)
         }
     }
-
-    // MARK: - Actions
 
 }
 
