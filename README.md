@@ -13,7 +13,7 @@ A small mobile app that shows a few photos using the [Kiliaro API](https://docs.
 - [x] Use `Builder` design pattern.
 - [x] Use `URLSession` to fetch data from the network.
 - [x] Reales on the App Store with `Fastlane`.
-- [ ] Write Unit Test with `XCTest`.
+- [x] Write Unit Test with `XCTest`.
 
 
 ## Requirements
