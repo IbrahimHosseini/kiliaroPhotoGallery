@@ -68,6 +68,7 @@ class ImageView: UIImageView {
                 self.save(image: result.image,
                           forKey: url.absoluteString)
             }
+            .progressiveJPEG()
             .onFailure { error in }
             .set(to: self)
     }
