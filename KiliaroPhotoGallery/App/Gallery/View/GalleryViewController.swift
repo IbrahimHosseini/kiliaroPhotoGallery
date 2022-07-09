@@ -1,5 +1,5 @@
 //
-//  GalleyViewController.swift
+//  GalleryViewController.swift
 //  KiliaroPhotoGallery
 //
 //  Created by Ibrahim Hosseini on 6/29/22.
@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class GalleyViewController: UIViewController {
+class GalleryViewController: UIViewController {
 
     // MARK: - Properties
     var collectionView: UICollectionView = {
@@ -42,7 +42,7 @@ class GalleyViewController: UIViewController {
 
 // MARK: - collection view data source
 
-extension GalleyViewController: UICollectionViewDataSource {
+extension GalleryViewController: UICollectionViewDataSource {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -72,7 +72,7 @@ extension GalleyViewController: UICollectionViewDataSource {
 
 // MARK: - collection view delegate
 
-extension GalleyViewController: UICollectionViewDelegate {
+extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gallery.count
     }
@@ -80,7 +80,7 @@ extension GalleyViewController: UICollectionViewDelegate {
 
 // MARK: - create collection layout
 
-extension GalleyViewController {
+extension GalleryViewController {
     static func createLayout() -> UICollectionViewCompositionalLayout {
 
         // dynamic margin size
