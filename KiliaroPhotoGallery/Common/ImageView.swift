@@ -19,10 +19,28 @@ class ImageView: UIImageView {
         initView()
     }
 
+    var url: String? {
+        didSet {
+            setImage()
+        }
+    }
+
+    var placeholderImageName: UIImage = UIImage(named: "appLogo")! {
+        didSet {
+            setImage()
+        }
+    }
+
     // MARK: - Helper functions
     private func initView() {
         isOpaque = true
         clipsToBounds = true
+    }
+
+    private func setImage() {
+        guard let url = url else { return }
+        setImage(urlString: url,
+                 placeholderImage: placeholderImageName)
     }
 
     public func setImage(urlString: String,

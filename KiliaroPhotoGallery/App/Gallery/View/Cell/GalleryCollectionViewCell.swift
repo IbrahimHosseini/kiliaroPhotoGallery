@@ -31,9 +31,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
 
-        let radius = UIScreen.main.bounds.width * 0.00
-        imageView.setCornerRadius(radius)
-
         dateLabel.text = ""
         dateLabel.isHidden = true
         dateLabel.textColor = .systemGray2
@@ -47,15 +44,17 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     }
 
     fileprivate func setupBinding() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        let url = imageUrl()
+        guard let viewModel = viewModel else { return }
+
+        let urlString = isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl
+
+        let url = imageUrl(urlString)
+
         CacheHandler.shared
             .load(image: url) { image in
                 guard let image = image else {
                     DispatchQueue.main.async {
-                        self.imageView.setImage(urlString: url)
+                        self.imageView.url = url
                     }
                     return
                 }
@@ -64,22 +63,19 @@ class GalleryCollectionViewCell: UICollectionViewCell {
                 }
             }
 
-        if isFullScreen {
-            dateLabel.isHidden = false
-        }
-        dateLabel.text = viewModel.createdAt.toDate
+        dateLabel.isHidden = !isFullScreen
+
+        viewModel.$createdAt
+            .map { $0.toDate }
+            .assign(to: \.text, on: dateLabel)
+            .store(in: &cancellable)
     }
 
-    private func imageUrl() -> String {
+    private func imageUrl(_ url: String) -> String {
 
-        guard let viewModel = viewModel else {
-            return ""
-        }
-
-        let height = isFullScreen ? Int(UIScreen.main.bounds.height) : 250//Int(self.contentView.bounds.height)
-        let width = isFullScreen ? Int(UIScreen.main.bounds.width) : 250//Int(self.contentView.bounds.width)
+        let height = isFullScreen ? Int(UIScreen.main.bounds.height) : 250
+        let width = isFullScreen ? Int(UIScreen.main.bounds.width) : 250
         let resizeMode: ResizeMode = isFullScreen ? .bb : .crop
-        let url = isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl
 
         let imageSize = ImageSizeHandler()
             .set(url: url)
