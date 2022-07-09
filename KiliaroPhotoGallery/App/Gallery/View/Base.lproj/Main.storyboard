@@ -254,10 +254,7 @@
                     <navigationItem key="navigationItem" id="mRI-G5-iNY"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="jje-xv-faf" id="oP8-dr-YvC"/>
-                        <outlet property="firstImageView" destination="vDF-nf-sX5" id="Jd9-h0-j0s"/>
                         <outlet property="labelCount" destination="Vh8-Q4-ln1" id="mGW-rI-swj"/>
-                        <outlet property="secondImageView" destination="KDI-c2-U7f" id="BAA-2z-xsx"/>
-                        <outlet property="thirdImageView" destination="ghv-V0-Pl1" id="L68-V3-7IE"/>
                         <outlet property="userImage" destination="LCd-ln-i0I" id="Z1U-uI-dww"/>
                         <outlet property="viewContainer" destination="597-De-wVd" id="RdB-jx-KPj"/>
                         <outletCollection property="imageView" destination="vDF-nf-sX5" collectionClass="NSMutableArray" id="qwt-jc-6tE"/>

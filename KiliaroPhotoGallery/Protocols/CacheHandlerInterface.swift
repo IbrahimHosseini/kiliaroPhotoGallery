@@ -13,6 +13,7 @@ protocol CacheHandlerInterface {
 
     var diskConfig: DiskConfig { get }
     var memoryConfig: MemoryConfig { get set }
+    var storage: Storage<String, StorageType>? { get set }
 
     func removeAll()
     func setStorage()
