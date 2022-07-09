@@ -15,14 +15,12 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var labelCount: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var firstImageView: ImageView!
-    @IBOutlet weak var secondImageView: ImageView!
-    @IBOutlet weak var thirdImageView: ImageView!
+    @IBOutlet var imageView: [ImageView]!
 
     // MARK: - Properties
     var cancellable = Set<AnyCancellable>()
 
-    var viewModel: GalleryViewModelInterface!
+    var viewModel: GalleryViewModelInterface?
 
     func initWith(_ viewModel: GalleryViewModelInterface) {
         self.viewModel = viewModel
@@ -46,7 +44,7 @@ class ShareViewController: UIViewController {
     // MARK: - Functions
 
     fileprivate func setupView() {
-        userImage.setBorder(color: ._F5F6F4,
+        userImage.setBorder(color: .cultured,
                             width: 5)
 
         userImage.backgroundColor = .white
@@ -54,7 +52,7 @@ class ShareViewController: UIViewController {
         userImage.image = UIImage(named: "user")
         userImage.contentMode = .scaleAspectFit
 
-        userImage.tintColor = ._2C2649
+        userImage.tintColor = .russianViolet
 
         viewContainer.setShadow()
         viewContainer.backgroundColor = .white
@@ -75,7 +73,10 @@ class ShareViewController: UIViewController {
     private func setupNotifications() {
         [Notifications.Reachability.connected.name,
          Notifications.Reachability.notConnected.name].forEach { (notification) in
-            NotificationCenter.default.addObserver(self, selector: #selector(changeInternetConnection), name: notification, object: nil)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(changeInternetConnection),
+                                                   name: notification,
+                                                   object: nil)
         }
     }
 
@@ -105,15 +106,15 @@ class ShareViewController: UIViewController {
         let back = UIBarButtonItem(barButtonSystemItem: .trash,
                                    target: self,
                                    action: #selector(popUpView))
-        navigationController?.navigationBar.tintColor = ._2C2649
+        navigationController?.navigationBar.tintColor = .russianViolet
         navigationItem.rightBarButtonItem = back
     }
 
     fileprivate func refreshBarButton() {
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh,
-                                   target: self,
-                                   action: #selector(loadData))
-        navigationController?.navigationBar.tintColor = ._2C2649
+                                      target: self,
+                                      action: #selector(loadData))
+        navigationController?.navigationBar.tintColor = .russianViolet
         navigationItem.leftBarButtonItem = refresh
     }
 
@@ -123,7 +124,7 @@ class ShareViewController: UIViewController {
                                       preferredStyle: .actionSheet)
 
         let clear = UIAlertAction(title: "Clear", style: .destructive) { action in
-            CacheHandler.shared.removeAll()
+            self.viewModel?.removeAllMedia()
             Indicator.done(title: "Clear cache successfully")
         }
 
@@ -138,12 +139,14 @@ class ShareViewController: UIViewController {
     }
 
     fileprivate func setupBinding() {
-        viewModel.galleryPublisher
+        viewModel?.galleryPublisher
             .receive(on: RunLoop.main)
             .sink {[weak self] gallery in
+
                 guard let self = self,
                       let gallery = gallery
                 else { return }
+
                 if gallery.count > 0 {
                     self.refreshView(data: gallery)
                 }
@@ -153,72 +156,22 @@ class ShareViewController: UIViewController {
 
     @objc private func loadData() {
         let key = Constants.sharedKey
-        CacheHandler.shared.load(object: key) { [weak self] media in
-            let data = media
-                .map { elements -> [GalleryCollectionViewModel] in
-                    var dataGallery: [GalleryCollectionViewModel] = []
-                    elements.forEach { media in
-                        dataGallery.append(GalleryCollectionViewModel(media))
-                    }
-                    return dataGallery
-                }
-
-            guard let data = data else {
-                self?.viewModel.getSharedMedia(key)
-                return
-            }
-            self?.refreshView(data: data)
-        }
+        viewModel?.getSharedMedia(key)
     }
 
     fileprivate func refreshView(data: [GalleryCollectionViewModel]) {
         self.gallery = data
         let count = gallery.count
+
         DispatchQueue.main.async {
             self.labelCount.text = "+\(count - 3)"
             self.descriptionLabel.text = "shared \(count) photos with you!"
 
-            let firstImageUrl = self.imageUrl(data[0].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: firstImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.firstImageView.setImage(urlString: firstImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.firstImageView.image = image
-                    }
-                }
-
-            let secondImageUrl = self.imageUrl(data[1].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: secondImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.secondImageView.setImage(urlString: secondImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.secondImageView.image = image
-                    }
-                }
-
-            let thirdImageUrl = self.imageUrl(data[2].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: thirdImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.thirdImageView.setImage(urlString: thirdImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.thirdImageView.image = image
-                    }
-                }
+            for i in 0..<self.imageView.count {
+                if data.count < i { return }
+                let imageUrl = self.imageUrl(data[i].thumbnailUrl)
+                self.imageView[i].url = imageUrl
+            }
         }
     }
 
@@ -231,14 +184,12 @@ class ShareViewController: UIViewController {
     }
 
     @objc fileprivate func more() {
-        let vc = UIStoryboard.main.instantiate(viewController: GalleyViewController.self)
+        let vc = UIStoryboard.main.instantiate(viewController: GalleryViewController.self)
         vc.gallery = self.gallery
         if let navigation = navigationController, self.gallery.count > 0 {
             navigation.pushViewController(vc, animated: true)
         }
     }
-
-    // MARK: - Actions
 
 }
 

@@ -8,19 +8,19 @@
 import UIKit
 
 extension UIColor {
-    class var _2C2649: UIColor {
-        return UIColor(named: "2C2649")!
+    class var russianViolet: UIColor {
+        return UIColor(named: "russianViolet")!
     }
 
-    class var _7FC38C: UIColor {
-        return UIColor(named: "7FC38C")!
+    class var darkSeaGreen: UIColor {
+        return UIColor(named: "darkSeaGreen")!
     }
 
-    class var _686E7B: UIColor {
-        return UIColor(named: "686E7B")!
+    class var nickel: UIColor {
+        return UIColor(named: "nickel")!
     }
 
-    class var _F5F6F4: UIColor {
-        return UIColor(named: "F5F6F4")!
+    class var cultured: UIColor {
+        return UIColor(named: "cultured")!
     }
 }

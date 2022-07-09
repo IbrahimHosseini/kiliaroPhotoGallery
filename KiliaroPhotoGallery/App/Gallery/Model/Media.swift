@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  Media.swift
 //  KiliaroPhotoGallery
 //
 //  Created by Ibrahim Hosseini on 6/29/22.
@@ -46,8 +46,4 @@ struct Media: Codable {
 
 enum MediaType: String, Codable {
     case image, video
-}
-
-struct Video: Codable {
-    var id: String?
 }
