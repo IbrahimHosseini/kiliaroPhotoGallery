@@ -15,9 +15,7 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var labelCount: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var firstImageView: ImageView!
-    @IBOutlet weak var secondImageView: ImageView!
-    @IBOutlet weak var thirdImageView: ImageView!
+    @IBOutlet var imageView: [ImageView]!
 
     // MARK: - Properties
     var cancellable = Set<AnyCancellable>()
@@ -169,14 +167,11 @@ class ShareViewController: UIViewController {
             self.labelCount.text = "+\(count - 3)"
             self.descriptionLabel.text = "shared \(count) photos with you!"
 
-            let firstImageUrl = self.imageUrl(data[0].thumbnailUrl)
-            self.firstImageView.url = firstImageUrl
-
-            let secondImageUrl = self.imageUrl(data[1].thumbnailUrl)
-            self.secondImageView.url = secondImageUrl
-
-            let thirdImageUrl = self.imageUrl(data[2].thumbnailUrl)
-            self.thirdImageView.url = thirdImageUrl
+            for i in 0..<self.imageView.count {
+                if data.count < i { return }
+                let imageUrl = self.imageUrl(data[i].thumbnailUrl)
+                self.imageView[i].url = imageUrl
+            }
         }
     }
 

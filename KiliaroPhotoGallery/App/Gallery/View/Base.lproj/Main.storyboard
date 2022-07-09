@@ -260,6 +260,9 @@
                         <outlet property="thirdImageView" destination="ghv-V0-Pl1" id="L68-V3-7IE"/>
                         <outlet property="userImage" destination="LCd-ln-i0I" id="Z1U-uI-dww"/>
                         <outlet property="viewContainer" destination="597-De-wVd" id="RdB-jx-KPj"/>
+                        <outletCollection property="imageView" destination="vDF-nf-sX5" collectionClass="NSMutableArray" id="qwt-jc-6tE"/>
+                        <outletCollection property="imageView" destination="KDI-c2-U7f" collectionClass="NSMutableArray" id="A1g-gO-Gje"/>
+                        <outletCollection property="imageView" destination="ghv-V0-Pl1" collectionClass="NSMutableArray" id="Ko2-1t-URX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L00-Xh-Kku" sceneMemberID="firstResponder"/>
