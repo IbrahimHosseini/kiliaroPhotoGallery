@@ -75,7 +75,10 @@ class ShareViewController: UIViewController {
     private func setupNotifications() {
         [Notifications.Reachability.connected.name,
          Notifications.Reachability.notConnected.name].forEach { (notification) in
-            NotificationCenter.default.addObserver(self, selector: #selector(changeInternetConnection), name: notification, object: nil)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(changeInternetConnection),
+                                                   name: notification,
+                                                   object: nil)
         }
     }
 
@@ -123,7 +126,7 @@ class ShareViewController: UIViewController {
                                       preferredStyle: .actionSheet)
 
         let clear = UIAlertAction(title: "Clear", style: .destructive) { action in
-            CacheHandler.shared.removeAll()
+            self.viewModel?.removeAllMedia()
             Indicator.done(title: "Clear cache successfully")
         }
 
@@ -141,9 +144,11 @@ class ShareViewController: UIViewController {
         viewModel?.galleryPublisher
             .receive(on: RunLoop.main)
             .sink {[weak self] gallery in
+
                 guard let self = self,
                       let gallery = gallery
                 else { return }
+
                 if gallery.count > 0 {
                     self.refreshView(data: gallery)
                 }
@@ -153,72 +158,25 @@ class ShareViewController: UIViewController {
 
     @objc private func loadData() {
         let key = Constants.sharedKey
-        CacheHandler.shared.load(object: key) { [weak self] media in
-            let data = media
-                .map { elements -> [GalleryCollectionViewModel] in
-                    var dataGallery: [GalleryCollectionViewModel] = []
-                    elements.forEach { media in
-                        dataGallery.append(GalleryCollectionViewModel(media))
-                    }
-                    return dataGallery
-                }
-
-            guard let data = data else {
-                self?.viewModel?.getSharedMedia(key)
-                return
-            }
-            self?.refreshView(data: data)
-        }
+        viewModel?.getSharedMedia(key)
     }
 
     fileprivate func refreshView(data: [GalleryCollectionViewModel]) {
         self.gallery = data
         let count = gallery.count
+
         DispatchQueue.main.async {
             self.labelCount.text = "+\(count - 3)"
             self.descriptionLabel.text = "shared \(count) photos with you!"
 
             let firstImageUrl = self.imageUrl(data[0].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: firstImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.firstImageView.setImage(urlString: firstImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.firstImageView.image = image
-                    }
-                }
+            self.firstImageView.setImage(urlString: firstImageUrl)
 
             let secondImageUrl = self.imageUrl(data[1].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: secondImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.secondImageView.setImage(urlString: secondImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.secondImageView.image = image
-                    }
-                }
+            self.secondImageView.setImage(urlString: secondImageUrl)
 
             let thirdImageUrl = self.imageUrl(data[2].thumbnailUrl)
-            CacheHandler.shared
-                .load(image: thirdImageUrl) { image in
-                    guard let image = image else {
-                        DispatchQueue.main.async {
-                            self.thirdImageView.setImage(urlString: thirdImageUrl)
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.thirdImageView.image = image
-                    }
-                }
+            self.thirdImageView.setImage(urlString: thirdImageUrl)
         }
     }
 

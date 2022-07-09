@@ -48,20 +48,8 @@ class GalleryCollectionViewCell: UICollectionViewCell {
 
         let urlString = isFullScreen ? viewModel.downloadUrl : viewModel.thumbnailUrl
 
-        let url = imageUrl(urlString)
-
-        CacheHandler.shared
-            .load(image: url) { image in
-                guard let image = image else {
-                    DispatchQueue.main.async {
-                        self.imageView.url = url
-                    }
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }
+        let url = imageUrlHandler(urlString)
+        self.imageView.url = url
 
         dateLabel.isHidden = !isFullScreen
 
@@ -71,7 +59,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
             .store(in: &cancellable)
     }
 
-    private func imageUrl(_ url: String) -> String {
+    private func imageUrlHandler(_ url: String) -> String {
 
         let height = isFullScreen ? Int(UIScreen.main.bounds.height) : 250
         let width = isFullScreen ? Int(UIScreen.main.bounds.width) : 250

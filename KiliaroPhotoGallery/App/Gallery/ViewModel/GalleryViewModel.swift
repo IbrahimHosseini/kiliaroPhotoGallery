@@ -11,6 +11,7 @@ import Combine
 protocol GalleryViewModelInterface {
     var galleryPublisher: PassthroughSubject<[GalleryCollectionViewModel]?, Never> { get }
     func getSharedMedia(_ sharedKey: String)
+    func removeAllMedia()
 }
 
 class GalleryViewModel: GalleryViewModelInterface {
@@ -25,12 +26,12 @@ class GalleryViewModel: GalleryViewModelInterface {
     }
 
     // MARK: Methods
-    fileprivate func saveToCache(_ response: [Media]) {
+    fileprivate func saveMediaToCache(_ response: [Media]) {
         CacheHandler.shared
             .save(object: response)
     }
 
-    func getSharedMedia(_ sharedKey: String) {
+    fileprivate func getMediaFromServer(_ sharedKey: String) {
         service.getSharedMedia(sharedKey)
             .sink { completion in
                 switch completion {
@@ -52,13 +53,36 @@ class GalleryViewModel: GalleryViewModelInterface {
                     }!
                 self.galleryPublisher.send(data)
                 if let response = response {
-                    self.saveToCache(response)
+                    self.saveMediaToCache(response)
                 }
             }
             .store(in: &cancellable)
     }
 
-    private func checkCacheData() {
+    func getSharedMedia(_ sharedKey: String) {
+        CacheHandler.shared
+            .load(object: sharedKey) { [weak self] media in
+                let data = media
+                    .map { elements -> [GalleryCollectionViewModel] in
+                        var dataGallery: [GalleryCollectionViewModel] = []
+                        elements.forEach { media in
+                            dataGallery.append(GalleryCollectionViewModel(media))
+                        }
+                        return dataGallery
+                    }
 
+                guard let data = data else {
+                    self?.getMediaFromServer(sharedKey)
+                    return
+                }
+                self?.galleryPublisher.send(data)
+            }
     }
+
+    func removeAllMedia() {
+        CacheHandler.shared.removeAll()
+    }
+
+
+
 }

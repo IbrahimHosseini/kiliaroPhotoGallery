@@ -46,6 +46,15 @@ class ImageView: UIImageView {
     public func setImage(urlString: String,
                          placeholderImage: UIImage = UIImage(named: "appLogo")!) {
 
+        load(image: urlString) { image in
+            if let image = image {
+                DispatchQueue.main.async {
+                    self.image = image
+                }
+                return
+            }
+        }
+
         guard let url = URL(string: urlString) else {
             self.image = placeholderImage
             return
@@ -61,7 +70,7 @@ class ImageView: UIImageView {
             .cacheOriginalImage()
             .fade(duration: 0.25)
             .onSuccess { result in
-                self.save(result.image,
+                self.save(image: result.image,
                           forKey: url.absoluteString)
             }
             .onFailure { error in }
@@ -72,10 +81,19 @@ class ImageView: UIImageView {
         self.kf.cancelDownloadTask()
     }
 
-    private func save(_ image: UIImage, forKey: String) {
+    private func save(image: UIImage,
+                      forKey: String) {
         CacheHandler.shared
             .save(image: image,
                   forKey: forKey)
+    }
+
+    private func load(image fromUrl: String,
+                      completion: @escaping (UIImage?) -> Void) {
+        CacheHandler.shared
+            .load(image: fromUrl) { image in
+                completion(image)
+            }
     }
 }
 
