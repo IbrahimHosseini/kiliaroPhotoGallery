@@ -46,7 +46,7 @@ class ShareViewController: UIViewController {
     // MARK: - Functions
 
     fileprivate func setupView() {
-        userImage.setBorder(color: ._F5F6F4,
+        userImage.setBorder(color: .cultured,
                             width: 5)
 
         userImage.backgroundColor = .white
@@ -54,7 +54,7 @@ class ShareViewController: UIViewController {
         userImage.image = UIImage(named: "user")
         userImage.contentMode = .scaleAspectFit
 
-        userImage.tintColor = ._2C2649
+        userImage.tintColor = .russianViolet
 
         viewContainer.setShadow()
         viewContainer.backgroundColor = .white
@@ -105,7 +105,7 @@ class ShareViewController: UIViewController {
         let back = UIBarButtonItem(barButtonSystemItem: .trash,
                                    target: self,
                                    action: #selector(popUpView))
-        navigationController?.navigationBar.tintColor = ._2C2649
+        navigationController?.navigationBar.tintColor = .russianViolet
         navigationItem.rightBarButtonItem = back
     }
 
@@ -113,7 +113,7 @@ class ShareViewController: UIViewController {
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh,
                                    target: self,
                                    action: #selector(loadData))
-        navigationController?.navigationBar.tintColor = ._2C2649
+        navigationController?.navigationBar.tintColor = .russianViolet
         navigationItem.leftBarButtonItem = refresh
     }
 
